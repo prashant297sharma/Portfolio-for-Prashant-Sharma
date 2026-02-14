@@ -8,23 +8,23 @@ import {
   MessageCircle, 
   Linkedin, 
   Mail, 
-  MapPin,
-  Clock,
-  ExternalLink,
-  ChevronRight,
-  ChevronLeft,
-  CheckCircle2,
-  Trophy,
-  Award,
-  Zap,
-  FileText,
-  TrendingUp,
-  PenTool,
-  Type,
-  FileEdit,
-  Search,
-  Check,
-  CheckCircle
+  MapPin, 
+  Clock, 
+  ExternalLink, 
+  ChevronRight, 
+  ChevronLeft, 
+  CheckCircle2, 
+  Trophy, 
+  Award, 
+  Zap, 
+  FileText, 
+  TrendingUp, 
+  PenTool, 
+  Type, 
+  FileEdit, 
+  Search, 
+  Check, 
+  CheckCircle 
 } from 'lucide-react';
 import { 
   PROJECTS, 
@@ -328,57 +328,6 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Results Timeline */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-4xl font-extrabold mb-20 text-center">Success Timeline</h2>
-           <div className="relative">
-              <div className="absolute left-1/2 -translate-x-1/2 h-full w-1 bg-blue-100 hidden md:block rounded-full"></div>
-              
-              <div className="space-y-16 relative">
-                 <div className="flex flex-col md:flex-row items-center gap-10 group">
-                    <div className="md:w-1/2 md:text-right bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-lg transition-all">
-                       <h3 className="text-2xl font-extrabold text-[#2E75B6] mb-4">December 2025</h3>
-                       <ul className="space-y-2 text-gray-700 font-bold text-lg">
-                         <li>🏆 Featured Snippet: "Top 10 Most Searched Unlisted Shares"</li>
-                         <li>🥇 #1 Ranking: "Why Do Companies Stay Unlisted"</li>
-                         <li>🥇 #1 Ranking: "10 Best Ways to Research Unlisted Company"</li>
-                       </ul>
-                    </div>
-                    <div className="w-5 h-5 rounded-full bg-[#2E75B6] relative z-10 outline outline-8 outline-blue-50 group-hover:scale-150 transition-all duration-500"></div>
-                    <div className="md:w-1/2 hidden md:block"></div>
-                 </div>
-
-                 <div className="flex flex-col md:flex-row-reverse items-center gap-10 group">
-                    <div className="md:w-1/2 bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-lg transition-all">
-                       <h3 className="text-2xl font-extrabold text-[#2E75B6] mb-4">November 2025</h3>
-                       <ul className="space-y-2 text-gray-700 font-bold text-lg">
-                         <li>🥇 #1 Ranking: "Complete Guide to Buying & Selling Unlisted Shares"</li>
-                         <li>🥇 #1 Ranking: "Bubble Wrap Insulation"</li>
-                         <li>🥇 #1 Ranking: "Thermal Insulation Contractors India"</li>
-                       </ul>
-                    </div>
-                    <div className="w-5 h-5 rounded-full bg-[#2E75B6] relative z-10 outline outline-8 outline-blue-50 group-hover:scale-150 transition-all duration-500"></div>
-                    <div className="md:w-1/2 hidden md:block"></div>
-                 </div>
-
-                 <div className="flex flex-col md:flex-row items-center gap-10 group">
-                    <div className="md:w-1/2 md:text-right bg-gray-50 p-8 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-lg transition-all">
-                       <h3 className="text-2xl font-extrabold text-[#2E75B6] mb-4">2024-2025</h3>
-                       <ul className="space-y-2 text-gray-700 font-bold text-lg">
-                         <li>📊 Top 5 Rankings: Multiple technical B2B projects</li>
-                         <li>📊 Consistent delivery of organic growth for Nine Hertz</li>
-                         <li>📊 Strategic Content Pillar for Delistedstocks</li>
-                       </ul>
-                    </div>
-                    <div className="w-5 h-5 rounded-full bg-[#2E75B6] relative z-10 outline outline-8 outline-blue-50 group-hover:scale-150 transition-all duration-500"></div>
-                    <div className="md:w-1/2 hidden md:block"></div>
-                 </div>
-              </div>
-           </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -444,19 +393,20 @@ const App: React.FC = () => {
                </div>
 
                <div className="flex flex-col gap-5">
-                  <a 
-                    href={`mailto:${EMAIL}?subject=Project Inquiry from Portfolio`} 
-                    className="w-full py-5 bg-[#2E75B6] text-white rounded-2xl font-extrabold text-xl hover:bg-[#25639b] transition-all text-center shadow-2xl hover:-translate-y-1"
-                  >
-                    Start A Project
-                  </a>
-                  <a 
-                    href={RESUME_LINK} 
-                    target="_blank"
-                    className="w-full py-5 bg-gray-50 text-gray-700 rounded-2xl font-extrabold text-xl hover:bg-gray-100 transition-all text-center border-2 border-gray-200"
-                  >
-                    Review Experience
-                  </a>
+                  <div className="text-center">
+                    <a 
+                      href={`mailto:${EMAIL}?subject=Project Inquiry from Portfolio`} 
+                      className="w-full block py-5 bg-[#2E75B6] text-white rounded-2xl font-extrabold text-xl hover:bg-[#25639b] transition-all text-center shadow-2xl hover:-translate-y-1 mb-3"
+                    >
+                      Start A Project
+                    </a>
+                    <a 
+                      href={`mailto:${EMAIL}?subject=Project Inquiry from Portfolio`} 
+                      className="text-[#2E75B6] font-bold text-base hover:underline decoration-2 underline-offset-4"
+                    >
+                      {EMAIL}
+                    </a>
+                  </div>
                </div>
                
                <div className="mt-12 flex items-center justify-center space-x-3 text-gray-400 font-extrabold uppercase text-xs tracking-widest">

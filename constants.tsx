@@ -123,6 +123,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       'Construction & Real Estate',
       'Healthcare & Wellness',
+      'Lifestyle and Fashion',
       'SaaS & Technology',
       'B2B Services',
       'Finance & Investing'
