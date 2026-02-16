@@ -36,3 +36,17 @@ export interface SkillCategory {
   skills: string[];
   icon?: string;
 }
+
+export interface Experience {
+  company: string;
+  role: string;
+  period: string;
+  location?: string;
+  points: string[];
+}
+
+export interface Education {
+  degree: string;
+  institution: string;
+  year: string;
+}
