@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, 
@@ -51,12 +50,14 @@ const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
 
-    // Initialize Typed.js
+    // Initialize Typed.js with specific 0.5s duration requirements
+    // Text: "SEO Content Strategist Who Delivers #1 Rankings and Drives Organic Growth" (~77 chars)
+    // Duration: 500ms / 77 chars ≈ 6.5ms per character
     if (window.Typed) {
       typedRef.current = new window.Typed('#typed-title', {
         strings: ['SEO Content Strategist Who Delivers #1 Rankings and Drives Organic Growth'],
-        typeSpeed: 90,
-        startDelay: 300,
+        typeSpeed: 6.5,
+        startDelay: 0,
         showCursor: true,
         cursorChar: '|',
         autoInsertCss: true,
@@ -103,6 +104,8 @@ const App: React.FC = () => {
   const WHATSAPP_LINK = "https://wa.me/918076486081";
   const EMAIL = "prashant29freelancewriter@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/prashant-sharma-74319a154/";
+
+  const FULL_TITLE = "SEO Content Strategist Who Delivers #1 Rankings and Drives Organic Growth";
 
   return (
     <div className="min-h-screen bg-white text-[#2C3E50]">
@@ -159,10 +162,11 @@ const App: React.FC = () => {
           </div>
           
           <h1 
-            className="text-4xl md:text-7xl font-extrabold leading-tight mb-8 max-w-4xl tracking-tight min-h-[4.5em] sm:min-h-[3em] md:min-h-[2.5em]" 
-            aria-label="SEO Content Strategist Who Delivers #1 Rankings and Drives Organic Growth"
+            className="text-4xl md:text-7xl font-extrabold leading-tight mb-8 max-w-4xl tracking-tight min-h-[3.5em] sm:min-h-[2.5em] md:min-h-[2em]" 
+            aria-label={FULL_TITLE}
           >
-            <span id="typed-title"></span>
+            <span id="typed-title" className="inline"></span>
+            <span id="fallback-title" className="hidden sr-only motion-reduce:inline motion-reduce:not-sr-only">{FULL_TITLE}</span>
           </h1>
 
           <p className="text-lg md:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed font-medium">
@@ -171,34 +175,33 @@ const App: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start mb-16">
             <a 
-              href={RESUME_LINK} 
-              target="_blank"
-              download={RESUME_LINK}
+              href="#about"
+              onClick={(e) => scrollToSection(e, 'about')}
               className="flex items-center justify-center px-10 py-5 bg-[#2C3E50] text-white rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-xl hover:-translate-y-1"
             >
-              <Download size={22} className="mr-3" /> Download Resume
+              About Me <ArrowRight size={22} className="ml-3" />
             </a>
             <a 
               href={WHATSAPP_LINK} 
               target="_blank"
               className="flex items-center justify-center px-10 py-5 bg-white text-[#2C3E50] border-2 border-[#2C3E50] rounded-2xl font-bold text-lg hover:bg-gray-50 transition-all shadow-sm hover:-translate-y-1"
             >
-              <MessageCircle size={22} className="mr-3 text-green-500" /> Let's Talk on WhatsApp
+              <MessageCircle size={22} className="mr-3 text-green-500" /> Let's Talk
             </a>
           </div>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-y-4 gap-x-12 text-gray-600">
             <div className="flex items-center space-x-3 group">
-              <CheckCircle2 size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
-              <span className="font-bold text-lg">6+ Years Driving SEO Growth</span>
+              <CheckCircle size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
+              <span className="font-bold text-lg">6+ Years Experience</span>
             </div>
             <div className="flex items-center space-x-3 group">
-              <CheckCircle2 size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
-              <span className="font-bold text-lg">Finance Content Specialist</span>
+              <CheckCircle size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
+              <span className="font-bold text-lg">#1 Rankings Achieved</span>
             </div>
             <div className="flex items-center space-x-3 group">
-              <CheckCircle2 size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
-              <span className="font-bold text-lg">GSC & GA4 Analytics Expert</span>
+              <CheckCircle size={22} className="text-[#27AE60] group-hover:scale-110 transition-transform" />
+              <span className="font-bold text-lg">Finance Content Expert</span>
             </div>
           </div>
         </div>
