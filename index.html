@@ -12,6 +12,31 @@
       body {
         font-family: 'Inter', sans-serif;
       }
+      
+      /* Typed.js Cursor Styling */
+      .typed-cursor {
+        color: #2E75B6;
+        font-weight: 300;
+        margin-left: 2px;
+      }
+
+      /* Accessibility: Respect system motion preferences */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-title-content {
+          display: none !important;
+        }
+        .hero-title-static {
+          display: block !important;
+        }
+        .typed-cursor {
+          display: none !important;
+        }
+      }
+
+      /* Static fallback hidden by default if JS/Animation is active */
+      .hero-title-static {
+        display: none;
+      }
     </style>
   <script type="importmap">
 {
@@ -19,7 +44,8 @@
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "lucide-react": "https://esm.sh/lucide-react@^0.564.0",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4"
+    "react": "https://esm.sh/react@^19.2.4",
+    "typed.js": "https://esm.sh/typed.js@^2.1.0"
   }
 }
 </script>

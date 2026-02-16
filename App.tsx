@@ -1,5 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Typed from 'typed.js';
 import { 
   Menu, 
   X, 
@@ -24,18 +25,23 @@ import {
   FileEdit, 
   Search, 
   Check, 
-  CheckCircle 
+  CheckCircle,
+  Briefcase,
+  GraduationCap
 } from 'lucide-react';
 import { 
   PROJECTS, 
   SKILL_CATEGORIES, 
   SERVICES, 
+  EXPERIENCE,
+  EDUCATION,
   COLORS 
 } from './constants';
 
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const titleEl = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +49,32 @@ const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Initialize Typed.js for the hero headline
+    // Target duration: 0.5s (500ms). String length is ~75 characters.
+    // 500 / 75 = ~6.6ms per character.
+    const typed = new Typed(titleEl.current, {
+      strings: ['SEO Content Strategist Who Delivers <span class="text-[#2E75B6]">#1 Rankings</span> and Drives Organic Growth'],
+      typeSpeed: 6.5,
+      startDelay: 0,
+      showCursor: true,
+      cursorChar: '|',
+      loop: false,
+      contentType: 'html',
+      onComplete: (self) => {
+        // Remove cursor after 2 seconds
+        setTimeout(() => {
+          const cursor = document.querySelector('.typed-cursor');
+          if (cursor) (cursor as HTMLElement).style.display = 'none';
+        }, 2000);
+      }
+    });
+
+    return () => {
+      typed.destroy();
+    };
   }, []);
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -63,7 +95,7 @@ const App: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const RESUME_LINK = "Prashant_Sharma_Final_Clean_Version.pdf";
+  const RESUME_LINK = "Prashant_Sharma_Resume.pdf";
   const WHATSAPP_LINK = "https://wa.me/918076486081";
   const EMAIL = "prashant29freelancewriter@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/prashant-sharma-74319a154/";
@@ -79,6 +111,7 @@ const App: React.FC = () => {
           
           <div className="hidden md:flex space-x-8 items-center font-semibold">
             <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#2E75B6] transition-colors">About</a>
+            <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className="hover:text-[#2E75B6] transition-colors">Experience</a>
             <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="hover:text-[#2E75B6] transition-colors">Portfolio</a>
             <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')} className="hover:text-[#2E75B6] transition-colors">Skills</a>
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="px-5 py-2.5 bg-[#2E75B6] text-white rounded-lg hover:bg-[#25639b] transition-all shadow-sm">
@@ -95,6 +128,7 @@ const App: React.FC = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100 py-4 px-4 space-y-4 shadow-lg absolute w-full left-0">
             <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="block py-2 text-lg font-medium">About</a>
+            <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className="block py-2 text-lg font-medium">Experience</a>
             <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="block py-2 text-lg font-medium">Portfolio</a>
             <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')} className="block py-2 text-lg font-medium">Skills</a>
             <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="block py-2 text-lg font-medium text-[#2E75B6]">Let's Talk</a>
@@ -121,17 +155,19 @@ const App: React.FC = () => {
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100/60 text-[#2E75B6] font-bold text-sm mb-8 border border-blue-200">
             <Award size={18} className="mr-2" /> 6+ Years of SEO Excellence
           </div>
-          <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-8 max-w-4xl tracking-tight">
-            SEO Content Strategist Who Delivers <span className="text-[#2E75B6]">#1 Rankings</span> & Measurable Organic Growth
+          <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-8 max-w-4xl tracking-tight min-h-[1.2em]" aria-label="SEO Content Strategist Who Delivers #1 Rankings and Drives Organic Growth">
+            <span className="hero-title-content" ref={titleEl}></span>
+            <span className="hero-title-static">SEO Content Strategist Who Delivers <span className="text-[#2E75B6]">#1 Rankings</span> and Drives Organic Growth</span>
           </h1>
           <p className="text-lg md:text-2xl text-gray-600 mb-12 max-w-2xl leading-relaxed font-medium">
-            I build SEO content ecosystems through strategic keyword clustering, search intent mapping, and conversion-focused writing that ranks—and converts.
+            Expert in structured content ecosystems, search intent mapping, and analytics-driven optimization aligned with business growth objectives.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start mb-16">
             <a 
               href={RESUME_LINK} 
               target="_blank"
+              download
               className="flex items-center justify-center px-10 py-5 bg-[#2C3E50] text-white rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-xl hover:-translate-y-1"
             >
               <FileText size={22} className="mr-3" /> Download Resume
@@ -170,18 +206,18 @@ const App: React.FC = () => {
               <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-50 -z-10"></div>
               <h2 className="text-4xl font-extrabold mb-8">Strategist by Mind, <span className="text-[#2E75B6]">Writer by Heart.</span></h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed font-medium">
-                I'm Prashant Sharma, a Senior SEO Content Strategist with 6+ years of proven experience delivering #1 rankings and measurable organic growth across diverse technical and consumer industries.
+                I am a Strategic Content Strategist with 6+ years of experience driving SEO-led content growth across finance and multi-industry domains. I specialize in building content architecture that actually converts.
               </p>
               
               <div className="space-y-8">
                 <div className="p-8 bg-white rounded-3xl border border-gray-100 shadow-sm">
-                  <h3 className="text-xl font-bold text-[#2E75B6] mb-5 uppercase tracking-wider text-sm">Strategic Framework:</h3>
+                  <h3 className="text-xl font-bold text-[#2E75B6] mb-5 uppercase tracking-wider text-sm">Professional Summary:</h3>
                   <ul className="space-y-4">
                     {[
-                      'Full-funnel content roadmap development from research to conversion',
-                      'Competitive SERP analysis and identification of content gaps',
-                      'Technical financial and B2B specifications balanced with accessibility',
-                      'Sustainable organic growth focusing on rankings AND business impact'
+                      'Expertise in structured content ecosystems and search intent mapping',
+                      'Proven record of keyword clustering and analytics-driven optimization',
+                      'Experienced in finance, IT, healthcare, real estate, and lifestyle',
+                      'Master\'s degree background with focus on audience engagement'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle2 size={18} className="text-[#27AE60] mr-3 mt-1 flex-shrink-0" />
@@ -198,7 +234,7 @@ const App: React.FC = () => {
                   <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=600" alt="Writing Workspace" className="rounded-2xl shadow-lg w-full h-80 object-cover mb-8" />
                   <div className="p-4 border-l-4 border-[#2E75B6] bg-gray-50 rounded-r-xl">
                     <p className="italic text-gray-700 text-lg font-medium leading-relaxed">
-                      "I combine data-driven SERP intelligence with authoritative writing to build content ecosystems that dominate niches and drive revenue."
+                      "Content without strategy is just noise. I build data-driven architectures that ensure your message reaches the right audience at the right time."
                     </p>
                   </div>
                </div>
@@ -207,27 +243,40 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-24 bg-white">
+      {/* Experience Section */}
+      <section id="experience" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-2xl">
-              <h2 className="text-4xl font-extrabold mb-5">Strategic Content Services</h2>
-              <p className="text-lg text-gray-600 font-medium leading-relaxed">Specialized SEO execution that drives measurable organic traffic and conversion lift through data and precision.</p>
+          <div className="flex items-center space-x-4 mb-16">
+            <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-[#2E75B6]">
+              <Briefcase size={28} />
             </div>
-            <a href="#contact" onClick={(e) => scrollToSection(e, 'contact')} className="text-[#2E75B6] font-extrabold text-lg inline-flex items-center group cursor-pointer border-b-2 border-[#2E75B6]/20 pb-1 hover:border-[#2E75B6] transition-all">
-              View All Services <ArrowRight size={22} className="ml-2 transition-transform group-hover:translate-x-1" />
-            </a>
+            <h2 className="text-4xl font-extrabold">Professional Experience</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {SERVICES.map((service, i) => (
-              <div key={i} className="p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all group">
-                <div className="w-16 h-16 bg-blue-100/50 rounded-2xl flex items-center justify-center text-[#2E75B6] mb-8 group-hover:scale-110 transition-transform">
-                  {service.icon}
+          <div className="space-y-12">
+            {EXPERIENCE.map((exp, i) => (
+              <div key={i} className="relative pl-10 border-l-2 border-blue-100">
+                <div className="absolute w-6 h-6 bg-blue-500 rounded-full -left-[13px] top-0 border-4 border-white shadow-sm"></div>
+                <div className="bg-gray-50 rounded-3xl p-8 hover:bg-white hover:shadow-xl transition-all border border-gray-100">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+                    <div>
+                      <h3 className="text-2xl font-extrabold text-[#2C3E50]">{exp.role}</h3>
+                      <p className="text-xl font-bold text-[#2E75B6]">{exp.company}</p>
+                    </div>
+                    <div className="flex flex-col md:items-end">
+                      <span className="px-4 py-1 bg-blue-100 text-[#2E75B6] rounded-full font-bold text-sm mb-2">{exp.period}</span>
+                      {exp.location && <span className="text-gray-500 flex items-center text-sm font-semibold"><MapPin size={14} className="mr-1" /> {exp.location}</span>}
+                    </div>
+                  </div>
+                  <ul className="grid md:grid-cols-2 gap-4">
+                    {exp.points.map((point, j) => (
+                      <li key={j} className="flex items-start">
+                        <Check size={18} className="text-[#27AE60] mr-2 mt-1 flex-shrink-0" />
+                        <span className="text-gray-600 font-medium">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-600 font-medium leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
@@ -299,17 +348,13 @@ const App: React.FC = () => {
               </div>
             ))}
           </div>
-
-          <div className="mt-16 text-center text-gray-500 font-medium italic text-sm max-w-2xl mx-auto">
-            Note: Several projects are ghostwritten under client brands. I maintain full authorship and performance data available for verification under NDA where required.
-          </div>
         </div>
       </section>
 
       {/* Skills Section */}
       <section id="skills" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-extrabold mb-16 text-center">Core Competencies</h2>
+          <h2 className="text-4xl font-extrabold mb-16 text-center">Expertise & Skills</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {SKILL_CATEGORIES.map((cat, i) => (
               <div key={i} className="p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 flex flex-col group hover:bg-white hover:shadow-xl transition-all">
@@ -328,11 +373,60 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Education & Technical Tools */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16">
+          <div>
+            <div className="flex items-center space-x-4 mb-10">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-[#2E75B6]">
+                <GraduationCap size={28} />
+              </div>
+              <h2 className="text-3xl font-extrabold">Education</h2>
+            </div>
+            <div className="space-y-8">
+              {EDUCATION.map((edu, i) => (
+                <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                  <h3 className="text-xl font-extrabold text-[#2C3E50] mb-2">{edu.degree}</h3>
+                  <p className="text-lg font-bold text-[#2E75B6] mb-2">{edu.institution}</p>
+                  <span className="text-gray-500 font-bold">{edu.year}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <div className="flex items-center space-x-4 mb-10">
+              <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-[#2E75B6]">
+                <Zap size={28} />
+              </div>
+              <h2 className="text-3xl font-extrabold">Technical Tools</h2>
+            </div>
+            <div className="bg-white p-10 rounded-3xl border border-gray-100 shadow-sm grid grid-cols-2 gap-8">
+              <div>
+                <h4 className="text-xs font-extrabold text-gray-400 uppercase mb-4 tracking-widest">Analytics & Search</h4>
+                <p className="text-lg font-bold text-gray-700">Google Analytics</p>
+                <p className="text-lg font-bold text-gray-700">Google Search Console</p>
+              </div>
+              <div>
+                <h4 className="text-xs font-extrabold text-gray-400 uppercase mb-4 tracking-widest">SEO Research</h4>
+                <p className="text-lg font-bold text-gray-700">Ahrefs / SEMrush</p>
+                <p className="text-lg font-bold text-gray-700">Surfer SEO</p>
+              </div>
+              <div>
+                <h4 className="text-xs font-extrabold text-gray-400 uppercase mb-4 tracking-widest">CMS & QA</h4>
+                <p className="text-lg font-bold text-gray-700">WordPress</p>
+                <p className="text-lg font-bold text-gray-700">Grammarly</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-gray-50 border-t border-gray-100">
+      <section id="contact" className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-[4rem] shadow-2xl overflow-hidden border border-gray-100 grid md:grid-cols-2">
-            <div className="p-12 md:p-20 bg-[#2C3E50] text-white">
+          <div className="bg-[#2C3E50] rounded-[4rem] shadow-2xl overflow-hidden grid md:grid-cols-2">
+            <div className="p-12 md:p-20 text-white">
               <h2 className="text-4xl md:text-5xl font-extrabold mb-10 leading-tight">Let's Build Content That <span className="text-blue-300">Dominates.</span></h2>
               <p className="text-xl text-blue-100 mb-12 leading-relaxed font-medium">
                 Ready to drive measurable organic growth? Whether you need a strategist who understands SERP dynamics or execution that delivers #1 rankings, let's talk.
@@ -357,35 +451,21 @@ const App: React.FC = () => {
                     <a href={LINKEDIN} target="_blank" className="text-2xl font-bold hover:text-blue-300 transition-colors">Connect on LinkedIn</a>
                   </div>
                 </div>
-                <div className="flex items-center space-x-6">
-                  <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center">
-                    <MessageCircle className="text-green-400" size={28} />
-                  </div>
-                  <div>
-                    <span className="block text-xs uppercase font-extrabold tracking-widest text-white/40 mb-1">WhatsApp</span>
-                    <a href={WHATSAPP_LINK} target="_blank" className="text-2xl font-bold hover:text-green-400 transition-colors">+91 8076486081</a>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-16 flex items-center space-x-4 text-white/60 font-bold">
-                 <MapPin size={22} />
-                 <span>Based in India | Available for Global Remote Projects</span>
               </div>
             </div>
 
             <div className="p-12 md:p-20 flex flex-col justify-center bg-white">
-               <h3 className="text-3xl font-extrabold mb-10">Strategic Specializations:</h3>
+               <h3 className="text-3xl font-extrabold mb-10 text-[#2C3E50]">Strategic Specializations:</h3>
                <div className="grid grid-cols-1 gap-5 mb-12">
                  {[
                    'Full-funnel SEO content strategy',
                    'Actionable investor intelligence guides',
-                   'Long-form technical B2B articles',
+                   'Technical B2B articles',
                    'Commercial intent keyword clustering',
                    'Ghostwriting for authority brands',
                    'On-page conversion optimization'
                  ].map((item, i) => (
-                   <div key={i} className="flex items-center space-x-4 p-5 rounded-2xl bg-gray-50 border border-transparent hover:border-gray-100 transition-colors group">
+                   <div key={i} className="flex items-center space-x-4 p-5 rounded-2xl bg-gray-50 group">
                      <CheckCircle2 size={24} className="text-[#27AE60] flex-shrink-0 group-hover:scale-110 transition-transform" />
                      <span className="text-gray-800 font-bold text-lg">{item}</span>
                    </div>
@@ -408,11 +488,6 @@ const App: React.FC = () => {
                     </a>
                   </div>
                </div>
-               
-               <div className="mt-12 flex items-center justify-center space-x-3 text-gray-400 font-extrabold uppercase text-xs tracking-widest">
-                  <Clock size={18} />
-                  <span>Prompt Response Within 24 Hours</span>
-               </div>
             </div>
           </div>
         </div>
@@ -426,11 +501,11 @@ const App: React.FC = () => {
           </div>
           <div className="flex space-x-10 text-gray-500 font-bold text-sm uppercase tracking-widest">
             <a href="#about" onClick={(e) => scrollToSection(e, 'about')} className="hover:text-[#2E75B6] transition-colors">About</a>
-            <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="hover:text-[#2E75B6] transition-colors">Work</a>
-            <a href="#skills" onClick={(e) => scrollToSection(e, 'skills')} className="hover:text-[#2E75B6] transition-colors">Skills</a>
+            <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className="hover:text-[#2E75B6] transition-colors">Work</a>
+            <a href="#portfolio" onClick={(e) => scrollToSection(e, 'portfolio')} className="hover:text-[#2E75B6] transition-colors">Portfolio</a>
           </div>
           <div className="text-gray-400 text-xs font-bold uppercase tracking-widest">
-            © {new Date().getFullYear()} Prashant Sharma. SEO Content Strategist.
+            © {new Date().getFullYear()} Prashant Sharma.
           </div>
         </div>
       </footer>

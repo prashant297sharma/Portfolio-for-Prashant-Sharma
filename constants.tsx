@@ -14,7 +14,7 @@ import {
   ExternalLink,
   MessageSquare
 } from 'lucide-react';
-import { RankingResult, PortfolioProject, SkillCategory } from './types';
+import { RankingResult, PortfolioProject, SkillCategory, Experience, Education } from './types';
 
 export const COLORS = {
   authority: '#2E75B6',
@@ -97,45 +97,45 @@ export const PROJECTS: PortfolioProject[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: 'SEO Strategy & Execution',
+    title: 'Content Strategy',
     skills: [
-      'Advanced keyword research & clustering',
-      'Search intent mapping (I/C/T)',
-      'SERP analysis & competitive gap identification',
-      'Content performance tracking',
-      'On-page SEO optimization',
-      'Featured snippet targeting'
+      'Search Intent Mapping',
+      'Editorial Planning',
+      'Funnel-Based Content Development',
+      'Keyword Research & Clustering',
+      'Organic Growth Strategy',
+      'Performance Analysis'
     ]
   },
   {
-    title: 'Content Specialization',
+    title: 'Writing Specialization',
     skills: [
-      'Long-form blog articles (2k-5k+ words)',
-      'Commercial & transactional content',
-      'Listicles & comparison guides',
-      'Ghostwriting for authority domains',
-      'Landing page content & copywriting',
-      'Email content & newsletters'
+      'Finance: Investment Content & News',
+      'Conversion: Landing Pages & Copy',
+      'Digital: Blog Strategy & PR Articles',
+      'Technical: B2B Specifications',
+      'Ghostwriting for Authority Brands',
+      'Reel Script Writing'
     ]
   },
   {
     title: 'Industries & Niches',
     skills: [
-      'Construction & Real Estate',
+      'Finance & Investing',
       'Healthcare & Wellness',
-      'Lifestyle and Fashion',
+      'Real Estate & Construction',
       'SaaS & Technology',
       'B2B Services',
-      'Finance & Investing'
+      'Lifestyle and Fashion'
     ]
   },
   {
     title: 'Tools & Platforms',
     skills: [
-      'SEO: Surfer, Ahrefs, SEMrush, GSC',
-      'Writing: Grammarly, Hemingway, Claude AI',
-      'CMS: WordPress (Yoast), Webflow',
-      'Analytics: GA4, Looker Studio'
+      'Analytics: GSC, Google Analytics',
+      'SEO: Ahrefs, SEMrush, Surfer SEO',
+      'CMS: WordPress, Webflow',
+      'QA: Grammarly, Hemingway'
     ]
   }
 ];
@@ -160,5 +160,43 @@ export const SERVICES = [
     title: 'Content Audits',
     description: 'In-depth analysis of existing content with actionable recommendations for performance lift.',
     icon: <FileText className="w-6 h-6" />
+  }
+];
+
+export const EXPERIENCE: Experience[] = [
+  {
+    company: 'MPPL (Mittal Portfolios Pvt. Ltd.)',
+    role: 'Content Writer',
+    period: 'Nov 2024 – Present',
+    points: [
+      'Led SEO strategy for financial and investment platforms.',
+      'Structured high-ranking share pages aligned with search intent.',
+      'Developed finance blogs, PR articles, and market-focused content.',
+      'Improved organic rankings using keyword clustering.'
+    ]
+  },
+  {
+    company: 'Independent Consultant',
+    role: 'Freelance Content Developer',
+    period: 'Aug 2020 – Present',
+    location: 'Delhi, India',
+    points: [
+      'Designed SEO-led strategies across finance, IT, healthcare, real estate, and lifestyle domains.',
+      'Built high-converting landing pages and structured blog ecosystems.',
+      'Improved organic visibility through content architecture planning.'
+    ]
+  }
+];
+
+export const EDUCATION: Education[] = [
+  {
+    degree: "Master's in English Language & Literature",
+    institution: "Indira Gandhi National Open University",
+    year: "2022"
+  },
+  {
+    degree: "B.A. in English Literature",
+    institution: "Delhi University",
+    year: "2018"
   }
 ];
