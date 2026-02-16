@@ -14,7 +14,7 @@ import {
   ExternalLink,
   MessageSquare
 } from 'lucide-react';
-import { RankingResult, PortfolioProject, SkillCategory, Experience, Education } from './types';
+import { RankingResult, PortfolioProject, SkillCategory } from './types';
 
 export const COLORS = {
   authority: '#2E75B6',
@@ -102,40 +102,42 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'Search Intent Mapping',
       'Editorial Planning',
       'Funnel-Based Content Development',
-      'Keyword Research & Clustering',
-      'Organic Growth Strategy',
-      'Performance Analysis'
+      'Content Architecture Planning',
+      'Audience Engagement Analysis',
+      'Readability Enhancement'
     ]
   },
   {
-    title: 'Writing Specialization',
+    title: 'SEO & Growth',
     skills: [
-      'Finance: Investment Content & News',
-      'Conversion: Landing Pages & Copy',
-      'Digital: Blog Strategy & PR Articles',
-      'Technical: B2B Specifications',
-      'Ghostwriting for Authority Brands',
+      'Advanced Keyword Research',
+      'Content Clustering',
+      'On-Page SEO Optimization',
+      'Organic Growth Strategy',
+      'Featured Snippet Targeting',
+      'SERP Gap Analysis'
+    ]
+  },
+  {
+    title: 'Specialized Writing',
+    skills: [
+      'Finance & Investment Content',
+      'Share Page Structuring',
+      'B2B & Technical Articles',
+      'High-Converting Landing Pages',
+      'Market News & PR Articles',
       'Reel Script Writing'
     ]
   },
   {
-    title: 'Industries & Niches',
+    title: 'Tools & Analytics',
     skills: [
-      'Finance & Investing',
-      'Healthcare & Wellness',
-      'Real Estate & Construction',
-      'SaaS & Technology',
-      'B2B Services',
-      'Lifestyle and Fashion'
-    ]
-  },
-  {
-    title: 'Tools & Platforms',
-    skills: [
-      'Analytics: GSC, Google Analytics',
-      'SEO: Ahrefs, SEMrush, Surfer SEO',
-      'CMS: WordPress, Webflow',
-      'QA: Grammarly, Hemingway'
+      'Google Search Console',
+      'Google Analytics',
+      'Ahrefs / SEMrush',
+      'Surfer SEO',
+      'WordPress (CMS)',
+      'Grammarly'
     ]
   }
 ];
@@ -147,56 +149,18 @@ export const SERVICES = [
     icon: <BarChart3 className="w-6 h-6" />
   },
   {
-    title: 'Long-Form Blog Writing',
-    description: '2,000-5,000+ word articles optimized for ranking, engagement, and conversion stages.',
+    title: 'Authority Writing',
+    description: 'High-ranking, long-form articles (2,000-5,000+ words) that build trust and drive conversions.',
     icon: <PenTool className="w-6 h-6" />
   },
   {
-    title: 'Keyword Research & Clustering',
-    description: 'Data-driven identification and clustering to maximize topical authority and ranking potential.',
+    title: 'Content Clustering',
+    description: 'Building topical authority through structured content ecosystems and search intent mapping.',
     icon: <Search className="w-6 h-6" />
   },
   {
-    title: 'Content Audits',
-    description: 'In-depth analysis of existing content with actionable recommendations for performance lift.',
-    icon: <FileText className="w-6 h-6" />
-  }
-];
-
-export const EXPERIENCE: Experience[] = [
-  {
-    company: 'MPPL (Mittal Portfolios Pvt. Ltd.)',
-    role: 'Content Writer',
-    period: 'Nov 2024 – Present',
-    points: [
-      'Led SEO strategy for financial and investment platforms.',
-      'Structured high-ranking share pages aligned with search intent.',
-      'Developed finance blogs, PR articles, and market-focused content.',
-      'Improved organic rankings using keyword clustering.'
-    ]
-  },
-  {
-    company: 'Independent Consultant',
-    role: 'Freelance Content Developer',
-    period: 'Aug 2020 – Present',
-    location: 'Delhi, India',
-    points: [
-      'Designed SEO-led strategies across finance, IT, healthcare, real estate, and lifestyle domains.',
-      'Built high-converting landing pages and structured blog ecosystems.',
-      'Improved organic visibility through content architecture planning.'
-    ]
-  }
-];
-
-export const EDUCATION: Education[] = [
-  {
-    degree: "Master's in English Language & Literature",
-    institution: "Indira Gandhi National Open University",
-    year: "2022"
-  },
-  {
-    degree: "B.A. in English Literature",
-    institution: "Delhi University",
-    year: "2018"
+    title: 'Performance Optimization',
+    description: 'Data-driven audits using GSC and Analytics to unlock hidden ranking potential in existing content.',
+    icon: <TrendingUp className="w-6 h-6" />
   }
 ];
