@@ -95,7 +95,7 @@ const App: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const RESUME_LINK = "Prashant_Sharma_Resume.pdf";
+  const RESUME_LINK = "https://drive.google.com/file/d/1sKanWkAg8XsU54KWgh8og88WiLJsMEVs/view?usp=sharing";
   const WHATSAPP_LINK = "https://wa.me/918076486081";
   const EMAIL = "prashant29freelancewriter@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/prashant-sharma-74319a154/";
