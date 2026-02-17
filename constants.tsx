@@ -123,6 +123,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       'Finance & Investment Content',
       'Share Page Structuring',
+      'Lifestyle and Fashion Articles',
       'B2B & Technical Articles',
       'High-Converting Landing Pages',
       'Market News & PR Articles',
