@@ -100,7 +100,7 @@ const App: React.FC = () => {
     setIsMenuOpen(false);
   };
 
-  const RESUME_LINK = "Prashant_Sharma_Final_Clean_Version.pdf";
+  const RESUME_LINK = "https://drive.google.com/file/d/1sKanWkAg8XsU54KWgh8og88WiLJsMEVs/view?usp=sharing";
   const WHATSAPP_LINK = "https://wa.me/918076486081";
   const EMAIL = "prashant29freelancewriter@gmail.com";
   const LINKEDIN = "https://www.linkedin.com/in/prashant-sharma-74319a154/";
@@ -175,11 +175,12 @@ const App: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start mb-16">
             <a 
-              href="#about"
-              onClick={(e) => scrollToSection(e, 'about')}
+              href={RESUME_LINK} 
+              target="_blank"
+              download={RESUME_LINK}
               className="flex items-center justify-center px-10 py-5 bg-[#2C3E50] text-white rounded-2xl font-bold text-lg hover:bg-black transition-all shadow-xl hover:-translate-y-1"
             >
-              About Me <ArrowRight size={22} className="ml-3" />
+              Download Resume <Download size={22} className="ml-3" />
             </a>
             <a 
               href={WHATSAPP_LINK} 
@@ -451,14 +452,6 @@ const App: React.FC = () => {
                </div>
                
                <div className="text-center">
-                  <a 
-                    href={RESUME_LINK} 
-                    target="_blank"
-                    download={RESUME_LINK}
-                    className="w-full flex items-center justify-center py-5 bg-[#2E75B6] text-white rounded-2xl font-extrabold text-xl hover:bg-[#25639b] transition-all shadow-2xl hover:-translate-y-1"
-                  >
-                    <Download className="mr-3" /> Get My Full CV
-                  </a>
                   <p className="mt-4 text-gray-400 font-extrabold uppercase text-xs tracking-widest flex items-center justify-center space-x-2">
                     <Clock size={16} /> <span>Strategic Response within 24 Hours</span>
                   </p>
