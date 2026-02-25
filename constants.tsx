@@ -30,13 +30,13 @@ export const RANKING_RESULTS: RankingResult[] = [];
 export const PROJECTS: PortfolioProject[] = [
   {
     id: 'p1',
-    title: '10 Best Ways To Research An Unlisted Company Before Buying Shares',
+    title: 'Why NSE Dominates India’s Unlisted Share Market in 2026',
     client: 'Delistedstocks.in',
     niche: 'Finance & Investing',
     type: 'Bylined Long-Form SEO Blog',
-    keyword: 'research unlisted company',
+    keyword: 'NSE unlisted share market',
     wordCount: '2,500+',
-    link: 'https://www.delistedstocks.in/news/10-best-ways-to-research-an-unlisted-company-before-buying-shares',
+    link: 'https://www.delistedstocks.in/nse-dominates-india-unlisted-share-market-2026/',
     role: ['Content strategy', 'Keyword research', 'Competitive gap analysis', 'Full writing', 'On-page SEO'],
     impact: ['Achieved #1 Ranking', 'Driving qualified investor traffic'],
     isGhostwritten: false
@@ -56,15 +56,15 @@ export const PROJECTS: PortfolioProject[] = [
   },
   {
     id: 'p3',
-    title: 'Delisted Vs Unlisted Shares: Key Differences Every Investor Must Know',
+    title: 'How Stock Exchanges Actually Work in India: Your Complete Guide to NSE & MSEI Unlisted Shares',
     client: 'Delistedstocks.in',
     niche: 'Finance & Investing',
-    type: 'Comparative Analysis Guide',
-    keyword: 'delisted vs unlisted shares',
+    type: 'Comprehensive Market Guide',
+    keyword: 'NSE & MSEI unlisted shares',
     wordCount: '2,200+',
-    link: 'https://www.delistedstocks.in/news/delisted-vs-unlisted-shares-difference/',
-    role: ['Side-by-side comparison framework', 'Liquidity analysis', 'Risk assessment writing', 'Search intent mapping'],
-    impact: ['Page 1 ranking for competitive comparison keyword', 'Reduces customer support queries'],
+    link: 'https://www.delistedstocks.in/stock-exchanges-working-india-nse-msei/',
+    role: ['Market infrastructure analysis', 'Exchange comparison', 'Regulatory framework writing', 'Search intent mapping'],
+    impact: ['Page 1 ranking for competitive market keywords', 'Educational authority building'],
     isGhostwritten: false
   },
   {
